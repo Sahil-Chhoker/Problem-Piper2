@@ -60,70 +60,87 @@ def send_email_to_subscribers():
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Today's Question</title>
+            <title>Today's Coding Question</title>
             <style>
                 body {{
-                    font-family: Arial, sans-serif;
+                    font-family: 'Arial', sans-serif;
                     line-height: 1.6;
-                    background-color: #f9f9f9;
-                    padding: 20px;
-                    text-align: center;
+                    background-color: #f0f4f8;
+                    margin: 0;
+                    padding: 0;
                 }}
                 .container {{
-                    background-color: #ffffff;
-                    padding: 20px;
-                    border-radius: 10px;
-                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
                     max-width: 600px;
-                    margin: 0 auto;
-                    text-align: left;
+                    margin: 20px auto;
+                    background-color: #ffffff;
+                    border-radius: 8px;
+                    overflow: hidden;
+                    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
                 }}
                 .header {{
-                    background-color: #007bff;
+                    background-color: #4a90e2;
                     color: white;
-                    padding: 10px 20px;
-                    border-radius: 10px 10px 0 0;
-                    font-size: 1.5em;
+                    padding: 20px;
+                    text-align: center;
+                    font-size: 24px;
+                    font-weight: bold;
                 }}
                 .content {{
-                    padding: 20px;
+                    padding: 30px;
                 }}
                 .question {{
-                    font-size: 1.2em;
+                    font-size: 20px;
                     font-weight: bold;
-                    margin-bottom: 10px;
-                    color: #007bff;
+                    margin-bottom: 15px;
+                    color: #2c3e50;
                 }}
                 .preview {{
                     font-style: italic;
-                    margin-bottom: 10px;
+                    margin-bottom: 20px;
+                    color: #34495e;
+                    background-color: #ecf0f1;
+                    padding: 15px;
+                    border-radius: 5px;
                 }}
                 .details {{
-                    margin-bottom: 10px;
+                    background-color: #f9f9f9;
+                    padding: 15px;
+                    border-radius: 5px;
+                    margin-bottom: 20px;
+                }}
+                .details p {{
+                    margin: 5px 0;
+                    color: #2c3e50;
+                }}
+                .details strong {{
+                    color: #3498db;
                 }}
                 .link {{
                     display: inline-block;
-                    background-color: #28a745;
+                    background-color: #2ecc71;
                     color: white;
-                    padding: 10px 20px;
+                    padding: 12px 25px;
                     text-decoration: none;
                     border-radius: 5px;
-                    margin-top: 20px;
+                    font-weight: bold;
+                    text-align: center;
+                    transition: background-color 0.3s ease;
                 }}
                 .link:hover {{
-                    background-color: #218838;
+                    background-color: #27ae60;
                 }}
                 .footer {{
-                    margin-top: 20px;
-                    font-size: 0.9em;
-                    color: #555;
+                    margin-top: 30px;
+                    text-align: center;
+                    color: #7f8c8d;
+                    font-size: 14px;
                 }}
             </style>
         </head>
         <body>
             <div class="container">
                 <div class="header">
-                    Daily Coding Question
+                    Daily Coding Challenge
                 </div>
                 <div class="content">
                     <div class="question">
@@ -140,13 +157,14 @@ def send_email_to_subscribers():
                     <a class="link" href="{question_data.link}" target="_blank">Solve Challenge</a>
                 </div>
                 <div class="footer">
-                    Happy coding,<br>
+                    Happy coding!<br>
                     The Coding Challenge Team
                 </div>
             </div>
         </body>
         </html>
-    """
+        """
+
 
     try:
         subscribers = db.query(User).filter(User.is_subscribed == True).all()
